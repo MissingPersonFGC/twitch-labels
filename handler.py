@@ -2,8 +2,8 @@
 import socketio
 from keys import *
 
-socketToken = 
+streamlabs = socketio.Client()
 
-sio = socketio.Client(f"https://sockets.streamlabs.com?token={socketToken}")
+streamlabs.connect(f"https://sockets.streamlabs.com?token={socketToken}")
 
-sio.connect()
+sio.wait()
