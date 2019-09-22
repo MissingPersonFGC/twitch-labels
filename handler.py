@@ -10,5 +10,12 @@ streamlabs.wait()
 
 @streamlabs.event
 def message(eventData)
-    print('something happened')
-    print(eventData)
+    if eventData.for == null and eventData.type == "donation"
+        print(f"{eventData.name} donated {eventData.formattedAmount}")
+    else if eventData.for == "twitch_account"
+        if eventData.type == "follow"
+            print(f"{eventData.name} followed")
+        else if eventData.type == "subscription"
+            print(f"{eventData.name} subscribed")
+        else if eventData.type == "bits"
+            print(f"{eventData.name} sent {eventData.amount} bits")
